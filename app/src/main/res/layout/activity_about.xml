@@ -6,4 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".About">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="328dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/aboutText"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="About page" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
