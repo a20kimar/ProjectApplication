@@ -6,54 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ListView
-        android:id="@+id/mylistview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent" >
 
-        <TableLayout
+        <ImageView
+            android:id="@+id/imgView"
             android:layout_width="wrap_content"
+            android:layout_height="220dp"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <ListView
+            android:id="@+id/mylistview"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:id="@+id/imageButton1"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:srcCompat="@drawable/ic_launcher_foreground" />
-
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:srcCompat="@drawable/ic_launcher_foreground" />
-                <ImageButton
-                    android:id="@+id/imageButton3"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:srcCompat="@drawable/ic_launcher_foreground" />
-                <ImageButton
-                    android:id="@+id/imageButton4"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:srcCompat="@drawable/ic_launcher_foreground" />
-                <ImageButton
-                    android:id="@+id/imageButton5"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    app:srcCompat="@drawable/ic_launcher_foreground" />
-            </TableRow>
-
-        </TableLayout>
+            android:gravity="center" />
 
         <Button
             android:id="@+id/btnAbout"

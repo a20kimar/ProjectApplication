@@ -2,9 +2,10 @@ package com.example.projectapplication;
 
 public class Place {
 
+    private String ID;
     private String name;
     private String location;
-    private int size;
+    private String category;
 
     @Override
     public String toString() {
@@ -13,12 +14,12 @@ public class Place {
     public String getLocation() {
         return location;
     }
-    public int getHeight() {
-        return size;
+    public String getCategory() {
+        return category;
     }
-    public Place(String n, String l, int h) {
+    public Place(String n, String l, String c) {
         name = n;
         location = l;
-        size = h;
+        category = c;
     }
 }
