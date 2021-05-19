@@ -6,6 +6,7 @@ public class Place {
     private String name;
     private String location;
     private String category;
+    private int drawableID;
 
     @Override
     public String toString() {
@@ -17,9 +18,11 @@ public class Place {
     public String getCategory() {
         return category;
     }
-    public Place(String n, String l, String c) {
+    public int getDrawableID() { return drawableID; }
+    public Place(String n, String l, String c, int d) {
         name = n;
         location = l;
         category = c;
+        drawableID = d;
     }
 }

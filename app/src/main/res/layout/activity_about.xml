@@ -12,10 +12,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imgView"
             android:layout_width="match_parent"
-            android:layout_height="328dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_height="350dp"
+            android:src="@drawable/p" />
 
         <TextView
             android:id="@+id/aboutText"

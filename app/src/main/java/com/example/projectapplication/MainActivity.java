@@ -1,9 +1,10 @@
-package com.example.projectapplication;
+    package com.example.projectapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -32,12 +33,14 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayAdapter<Place> placeAdapter;
     private ArrayList<Place> placeList = new ArrayList<>();
+    private int[] drawableListID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        drawableListID = new int[]{R.drawable.p,R.drawable.sa,R.drawable.sa,R.drawable.p,R.drawable.st};
         placeAdapter = new ArrayAdapter<>(this, R.layout.list_places, placeList);
 
         ListView list = (ListView) findViewById(R.id.mylistview);
@@ -47,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a20kimar");
 
-
         list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                updateInfo(img);
+                Log.d("Place_Click", "Updating information on screen for position " + position);
+                updateInfo(img, position);
             }
         });
 
@@ -66,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void updateInfo(ImageView i) {
-        //i.setImageResource();
+    private void updateInfo(ImageView i, int p) {
+        i.setImageResource(placeList.get(p).getDrawableID());
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -119,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 places = gson.fromJson(json, Place[].class);
                 placeAdapter.clear();
                 for (int i = 0; i < places.length; i++) {
-                    placeList.add(new Place(places[i].toString(), places[i].getLocation(), places[i].getCategory()));
+                    placeList.add(new Place(places[i].toString(), places[i].getLocation(), places[i].getCategory(), drawableListID[i]));
                 }
                 placeAdapter.notifyDataSetChanged();
 
