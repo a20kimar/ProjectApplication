@@ -15,10 +15,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,13 +43,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        drawableListID = new int[]{R.drawable.p,R.drawable.sa,R.drawable.sa,R.drawable.p,R.drawable.st};
+        drawableListID = new int[]{R.drawable.g,R.drawable.sa,R.drawable.pp,R.drawable.p,R.drawable.st};
         placeAdapter = new ArrayAdapter<>(this, R.layout.list_places, placeList);
 
         ListView list = (ListView) findViewById(R.id.mylistview);
-        list.setAdapter(placeAdapter);
-
+        TextView title = (TextView) findViewById(R.id.titleText);
+        TextView text = (TextView) findViewById(R.id.breadText);
+        TextView citation = (TextView) findViewById(R.id.citationText);
         ImageView img = (ImageView) findViewById(R.id.imgView);
+
+        list.setAdapter(placeAdapter);
 
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a20kimar");
 
@@ -54,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 Log.d("Place_Click", "Updating information on screen for position " + position);
-                updateInfo(img, position);
+                updateInfo(img, position, title, text, citation);
             }
         });
 
@@ -69,8 +75,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void updateInfo(ImageView i, int p) {
+    private void updateInfo(ImageView i, int p, TextView title, TextView text, TextView citation) {
         i.setImageResource(placeList.get(p).getDrawableID());
+        title.setText(placeList.get(p).getName());
+        text.setText(placeList.get(p).getAux().getText());
+        citation.setText(placeList.get(p).getAux().getCitation());
     }
 
     @SuppressLint("StaticFieldLeak")

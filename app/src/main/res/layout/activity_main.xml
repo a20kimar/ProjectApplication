@@ -13,11 +13,31 @@
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent" >
 
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="30dp"/>
+
         <ImageView
             android:id="@+id/imgView"
             android:layout_width="wrap_content"
-            android:layout_height="220dp"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            android:layout_height="220dp" />
+
+        <TextView
+            android:id="@+id/citationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="12dp"/>
+
+        <TextView
+            android:id="@+id/breadText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="17dp"/>
 
         <ListView
             android:id="@+id/mylistview"
