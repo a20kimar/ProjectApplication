@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 places = gson.fromJson(json, Place[].class);
                 placeAdapter.clear();
                 for (int i = 0; i < places.length; i++) {
-                    placeList.add(new Place(places[i].toString(), places[i].getLocation(), places[i].getCategory(), drawableListID[i]));
+                    placeList.add(new Place(places[i].toString(), places[i].getLocation(), places[i].getCategory(), drawableListID[i], places[i].getAux()));
                 }
                 placeAdapter.notifyDataSetChanged();
 

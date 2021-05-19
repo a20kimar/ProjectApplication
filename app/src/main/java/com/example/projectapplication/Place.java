@@ -6,6 +6,7 @@ public class Place {
     private String name;
     private String location;
     private String category;
+    private Auxdata aux;
     private int drawableID;
 
     @Override
@@ -18,11 +19,15 @@ public class Place {
     public String getCategory() {
         return category;
     }
+    public String getText() { return aux.getText(); }
+    public Auxdata getAux() { return aux; }
     public int getDrawableID() { return drawableID; }
-    public Place(String n, String l, String c, int d) {
+
+    public Place(String n, String l, String c, int d, Auxdata a) {
         name = n;
         location = l;
         category = c;
         drawableID = d;
+        aux = a;
     }
 }
