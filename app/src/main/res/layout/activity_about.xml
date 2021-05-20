@@ -12,11 +12,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/titleText"
+            android:id="@+id/titletextAbout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            android:text="The ancient megalithic app"/>
 
         <ImageView
             android:id="@+id/imageView"
@@ -26,9 +27,12 @@
 
         <TextView
             android:id="@+id/aboutText"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:text="About page" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About page"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:textSize="20dp"/>
 
     </LinearLayout>
 

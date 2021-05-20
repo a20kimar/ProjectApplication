@@ -79,7 +79,12 @@ public class MainActivity extends AppCompatActivity {
         i.setImageResource(placeList.get(p).getDrawableID());
         title.setText(placeList.get(p).getName());
         text.setText(placeList.get(p).getAux().getText());
-        citation.setText(placeList.get(p).getAux().getCitation());
+        if (placeList.get(p).getAux().getLink() != null) {
+            citation.setText(placeList.get(p).getAux().getCitation() + "\n" + placeList.get(p).getAux().getLink());
+        } else {
+            citation.setText("");
+            Log.d("Updateinfo: ", "Link is null, cannot display");
+        }
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -131,7 +136,8 @@ public class MainActivity extends AppCompatActivity {
                 places = gson.fromJson(json, Place[].class);
                 placeAdapter.clear();
                 for (int i = 0; i < places.length; i++) {
-                    placeList.add(new Place(places[i].toString(), places[i].getLocation(), places[i].getCategory(), drawableListID[i], places[i].getAux()));
+                    placeList.add(places[i]);
+                    places[i].setDrawableID(drawableListID[i]);
                 }
                 placeAdapter.notifyDataSetChanged();
 
